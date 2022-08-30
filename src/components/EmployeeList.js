@@ -1,5 +1,10 @@
 import Employee from "./Employee";
+import { useContext } from "react";
+import {EmployeeContext} from "../contexts/EmployeeContext";
 const EmployeeList = () => {
+
+    const {employees} = useContext(EmployeeContext);
+
     return (
         <table className="table table-striped table-hover">
             <thead>
@@ -12,7 +17,7 @@ const EmployeeList = () => {
                 </tr>
             </thead>
             <tbody>
-                <Employee />
+                <Employee employees={employees}/>
             </tbody>
         </table>
     );
