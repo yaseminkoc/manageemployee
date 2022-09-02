@@ -46,6 +46,10 @@ body {
 	font-size: 21px;
 	margin-right: 5px;
 }
+.btn-act{
+	padding:2px;
+}
+
 .table-title .btn span {
 	float: left;
 	margin-top: 2px;
@@ -57,7 +61,7 @@ table.table tr th, table.table tr td {
 }
 
 table.table tr th:last-child {
-	width: 100px;
+	width: 150px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
 	background-color: #fcfcfc;
