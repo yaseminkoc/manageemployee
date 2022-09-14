@@ -3,7 +3,7 @@ import { EmployeeContext } from "../contexts/EmployeeContext";
 import { useContext, useState } from "react";
 const EditForm = ({theEmployee}) => {
 
-    const {updateEmployee} = useContext(EmployeeContext);
+    const {dispatch} = useContext(EmployeeContext);
     const employee = theEmployee;
     const id = employee.id;
     const [name, setName] = useState(employee.name);
@@ -13,7 +13,8 @@ const EditForm = ({theEmployee}) => {
     const updatedEmployee = {id, name, email, address, phone}
     const handleSubmit = (e) =>{
         e.preventDefault();
-        updateEmployee(id, updatedEmployee);
+       // updateEmployee(id, updatedEmployee);
+       dispatch({type:"update_employee", id, updatedEmployee});
     }
 
     return(

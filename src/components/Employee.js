@@ -4,7 +4,7 @@ import { useContext, useState, useEffect } from "react";
 import { Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { EmployeeContext } from "../contexts/EmployeeContext";
 const Employee = ({ employee }) => {
-    const { deleteEmployee } = useContext(EmployeeContext);
+    const { dispatch } = useContext(EmployeeContext);
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true)
     const handleClose = () => setShow(false)
@@ -36,7 +36,7 @@ const Employee = ({ employee }) => {
                                     Delete
                                 </Tooltip>
                             }>
-                            <button className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons" onClick={() => deleteEmployee(employee.id)}>&#xE872;</i></button>
+                            <button className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons" onClick={() => dispatch({type:"remove_employee", id: employee.id})}>&#xE872;</i></button>
                         </OverlayTrigger>
                        
                         
