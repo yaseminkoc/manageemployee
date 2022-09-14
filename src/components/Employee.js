@@ -1,7 +1,7 @@
 import React from "react";
 import EditForm from "./EditForm";
 import { useContext, useState, useEffect } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { EmployeeContext } from "../contexts/EmployeeContext";
 const Employee = ({ employee }) => {
     const { deleteEmployee } = useContext(EmployeeContext);
@@ -21,8 +21,25 @@ const Employee = ({ employee }) => {
                     <td>{employee.address}</td>
                     <td>{employee.phone}</td>
                     <td>
-                        <button onClick={handleShow} className="btn text-warning btn-act" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></button>
-                        <button className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons" data-toggle="tooltip" title="Delete" onClick={() => deleteEmployee(employee.id)}>&#xE872;</i></button>
+                        <OverlayTrigger
+                            overlay={
+                                <Tooltip id={`tooltip-top`}>
+                                    Edit
+                                </Tooltip>
+                            }>
+                             <button onClick={handleShow} className="btn text-warning btn-act" data-toggle="modal"><i className="material-icons" >&#xE254;</i></button>
+                        </OverlayTrigger>
+
+                        <OverlayTrigger
+                            overlay={
+                                <Tooltip id={`tooltip-top`}>
+                                    Delete
+                                </Tooltip>
+                            }>
+                            <button className="btn text-danger btn-act" data-toggle="modal"><i className="material-icons" onClick={() => deleteEmployee(employee.id)}>&#xE872;</i></button>
+                        </OverlayTrigger>
+                       
+                        
                     </td>
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header className="modal-header" closeButton>

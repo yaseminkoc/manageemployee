@@ -10,7 +10,7 @@ const EditForm = ({theEmployee}) => {
     const [email, setEmail] = useState(employee.email);
     const [address, setAddress] = useState(employee.address);
     const [phone, setPhone] = useState(employee.phone);
-    const updatedEmployee = {name, email, address, phone}
+    const updatedEmployee = {id, name, email, address, phone}
     const handleSubmit = (e) =>{
         e.preventDefault();
         updateEmployee(id, updatedEmployee);

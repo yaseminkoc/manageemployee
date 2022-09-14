@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Pagination = ({pages, setCurrentPage}) => {
+const Pagination = ({pages, setCurrentPage, employeesPerPage, totalEmployee}) => {
  
     const numOfPages = [];
 
@@ -16,7 +16,7 @@ const Pagination = ({pages, setCurrentPage}) => {
 
     return (
         <div className="clearfix">
-            <div className="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+            <div className="hint-text">Showing <b>{employeesPerPage}</b> out of <b>{totalEmployee}</b> entries</div>
             <ul className="pagination">
                 <li className={`${currentButton === 1 ? `page-item disabled` : `page-item`}`}><a href="#!" className="page-link" onClick={() => {
                     setCurrentButton((prev) => prev === 1 ? prev : prev - 1);
